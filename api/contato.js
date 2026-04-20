@@ -39,7 +39,10 @@ module.exports = async (req, res) => { // ⚠️ TEM que ser async
 
         await transporter.sendMail({
             from: process.env.EMAIL_USER,
-            to: "felipedgart@gmail.com",
+            to: [
+                "felipedgart@gmail.com",
+                "comercial@cafeselvagem.com.br"
+            ],
             subject: "Novo Contato do Site",
             text: `Nome: ${nome}\nEmail: ${email} \nQuantidade: ${quantidade} \nMensagem: ${mensagem}`
         });
