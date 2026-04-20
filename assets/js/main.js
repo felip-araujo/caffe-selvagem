@@ -1,51 +1,39 @@
-const nodemailer = require("nodemailer");
+const form = document.getElementById("form-contato");
 
-module.exports = async (req, res) => { // ✅ async aqui
-    try {
-        if (req.method !== "POST") {
-            return res.status(405).end();
-        }
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const { nome, email, mensagem, quantidade, token } = req.body;
+    const token = grecaptcha.getResponse();
 
-        // 🔐 valida reCAPTCHA
-        const verify = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: `secret=${process.env.RECAPTCHA_SECRET}&response=${token}`
-        });
-
-        const data = await verify.json();
-
-        if (!data.success) {
-            return res.status(400).json({ error: "Captcha inválido" });
-        }
-
-        // 📩 envio de email
-        const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
-        });
-
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            //   to: "comercial@cafeselvagem.com.br",
-            to: "felipedgart@gmail.com",
-            subject: "Novo contato do site",
-            text: `Nome: ${nome}\nEmail: ${email} }\nQuantidade: ${quantidade} \nMensagem: ${mensagem}`
-        });
-
-        return res.status(200).json({ ok: true });
-
-    } catch (error) {
-        console.error("ERRO:", error);
-        return res.status(500).json({ error: error.message });
+    if (!token) {
+        alert("Confirme o captcha");
+        return;
     }
-};
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const mensagem = document.getElementById("mensagem").value;
+    const quantidade = document.getElementById("quantidade").value;
+
+    const res = await fetch("/api/contato", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nome,
+            email,
+            mensagem,
+            quantidade,
+            token
+        })
+    });
+
+    if (res.ok) {
+        alert("Mensagem enviada!");
+        form.reset();
+        grecaptcha.reset();
+    } else {
+        alert("Erro ao enviar");
+    }
+});
