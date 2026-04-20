@@ -1,26 +1,32 @@
-console.log("teste")
+const token = grecaptcha.getResponse();
+
+if (!token) {
+  alert("Confirme que você não é um robô");
+  return;
+}
 
 const form = document.getElementById("form-contato");
 
 form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // impede reload
+    e.preventDefault(); // impede reload
 
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const mensagem = document.getElementById("mensagem").value;
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const mensagem = document.getElementById("mensagem").value;
+    const quantidade = document.getElementById("quantidade").value
 
-  const res = await fetch("/api/contato", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ nome, email, mensagem })
-  });
+    const res = await fetch("/api/contato", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nome, email, mensagem, quantidade, token })
+    });
 
-  if (res.ok) {
-    alert("Mensagem enviada!");
-    form.reset();
-  } else {
-    alert("Erro ao enviar");
-  }
+    if (res.ok) {
+        alert("Mensagem enviada!");
+        form.reset();
+    } else {
+        alert("Erro ao enviar");
+    }
 });

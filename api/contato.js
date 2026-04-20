@@ -24,6 +24,7 @@ module.exports = async function handler(req, res) {
             text: `
 Nome: ${nome}
 Email: ${email}
+Quantidade: ${quantidade}
 Mensagem: ${mensagem}
       `
         });
@@ -34,3 +35,20 @@ Mensagem: ${mensagem}
         return res.status(500).json({ error: "Erro ao enviar email" });
     }
 };
+
+
+const fetch = require("node-fetch");
+
+const verify = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: `secret=${process.env.RECAPTCHA_SECRET}&response=${token}`
+});
+
+const data = await verify.json();
+
+if (!data.success) {
+    return res.status(400).json({ error: "reCAPTCHA inválido" });
+}
