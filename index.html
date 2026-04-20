@@ -95,7 +95,7 @@
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
             <div class="flex-shrink-0">
-                <img src="./assets/image/03.png" alt="Logo Café Selvagem" class="w-[80px] h-[80px] object-contain hover:scale-105 transition-transform">
+                <img src="./assets/image/03.png" alt="Logo Café Selvagem" class="w-[80px] h-[80px] object-contain">
             </div>
 
             <div class="hidden md:flex items-center gap-10 ml-auto">
@@ -104,15 +104,21 @@
                 <a href="#clientes" class="text-verde-escuro font-ligth hover:text-marrom transition">Nossos
                     clientes</a>
                 <a href="#contato"
-                    class="bg-verde-escuro text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition-transform">
+                    class="bg-verde-escuro text-white px-6 py-3 rounded-lg font-bold hover:bg-marrom transition shadow-md">
                     Fale Conosco
                 </a>
             </div>
 
-            <div class="md:hidden text-verde-escuro text-2xl">
+            <button id="mobile-menu-button" class="md:hidden text-verde-escuro text-3xl focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
-            </div>
+            </button>
+        </div>
 
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-gray-100 p-6 space-y-4 shadow-inner">
+            <a href="#sobre" class="block text-verde-escuro font-ligth uppercase py-2">Quem somos</a>
+            <a href="#sobre" class="block text-verde-escuro font-ligth uppercase py-2">Nossos pilares</a>
+            <a href="#parceiros" class="block text-verde-escuro font-ligth uppercase py-2">Nossos clientes</a>
+            <a href="#contato" class="block bg-marrom text-white text-center py-4 rounded-lg font-bold">FALE CONOSCO</a>
         </div>
     </nav>
 
@@ -121,12 +127,12 @@
 
         <div class="relative z-10 max-w-4xl mx-auto">
             <h1
-                class="text-4xl md:text-6xl font-extrabold mb-6 uppercase animate__animated animate__fadeIn animate__slow">
-                A força da floresta despertando o seu dia.
+                class="text-3xl md:text-6xl font-extrabold leading-tight mb-5 uppercase animate__animated animate__fadeIn animate__slow">
+                A força da floresta despertando seu dia.
             </h1>
             <p class="text-lg md:text-xl mb-10 text-stone-200 animate__animated animate__fadeInDown">Produção em larga
                 escala com a essência e o vigor do
-                Amazonas. <br> Grãos selecionados para quem busca o autêntico sabor da terra.</p>
+                Amazonas. Grãos selecionados para quem busca o autêntico sabor da terra.</p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#sobre"
                     class="bg-white text-verde-escuro py-4 px-8 rounded-lg font-medium text-lg hover:scale-105 transition-transform">Quero
@@ -141,7 +147,8 @@
     <section id="sobre" class="py-24 px-6 bg-stone-100">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 data-aos="fade-up" class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Nossos Pilares</h2>
+                <h2 data-aos="fade-up" class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Nossos
+                    Pilares</h2>
                 <h3 data-aos="fade-up" class="text-3xl md:text-5xl font-black text-verde-escuro uppercase">
                     A Excelência do Café Amazônico
                 </h3>
@@ -216,7 +223,8 @@
         <div class="max-w-6xl mx-auto px-6">
 
             <div class="text-center text-white mb-20">
-                <h2 data-aos="fade-up" class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">Potencialize sua Indústria com
+                <h2 data-aos="fade-up" class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">
+                    Potencialize sua Indústria com
                     o Grão da Amazônia</h2>
                 <p data-aos="fade-up" class="text-lg md:text-xl mb-10 opacity-90 max-w-3xl mx-auto">
                     Seja para exportação, marcas próprias ou grandes redes de varejo, entregamos constância sensorial e
@@ -309,9 +317,9 @@
 
                 <div class="space-y-8">
                     <div>
-                        <h2  class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Canais de Atendimento
+                        <h2 class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Canais de Atendimento
                         </h2>
-                        <h3  class="text-4xl md:text-5xl font-black text-verde-escuro uppercase leading-tight">
+                        <h3 class="text-4xl md:text-5xl font-black text-verde-escuro uppercase leading-tight">
                             Fale com um de nossos <span class="text-marrom">especialistas</span>
                         </h3>
                         <div class="w-20 h-1 bg-marrom mt-6"></div>
@@ -358,7 +366,8 @@
                     </div>
                 </div>
 
-                <div data-aos="fade-up" class="bg-stone-50 p-8 md:p-10 rounded-3xl shadow-xl border-r-8 border-verde-escuro">
+                <div data-aos="fade-up"
+                    class="bg-stone-50 p-8 md:p-10 rounded-3xl shadow-xl border-r-8 border-verde-escuro">
                     <form action="#" class="space-y-5">
                         <div>
                             <label class="block text-sm font-bold text-verde-escuro mb-2 uppercase tracking-wide">Nome
@@ -411,6 +420,23 @@
         AOS.init({
             duration: 1000, // Duração da animação em milissegundos
             once: true,     // Se a animação deve acontecer apenas uma vez ao rolar
+        });
+    </script>
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            // Alterna a classe 'hidden' do Tailwind
+            menu.classList.toggle('hidden');
+        });
+
+        // Fechar o menu automaticamente ao clicar em um link
+        const links = menu.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
         });
     </script>
 
