@@ -24,6 +24,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -89,20 +91,41 @@
 
 <body class="bg-stone-50 text-gray-800">
 
-    <nav class="p-4 flex justify-between items-center bg-white shadow-sm">
-        <img src="./assets/image/03.png" alt="Logo Café Selvagem" class="w-[80px] h-[80px] object-contain">
-        <a href="#contato"
-            class="bg-verde-escuro text-white px-6 py-2 rounded-lg font-ligth hover:bg-opacity-90 transition">Fale
-            Conosco</a>
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="flex-shrink-0">
+                <img src="./assets/image/03.png" alt="Logo Café Selvagem" class="w-[80px] h-[80px] object-contain hover:scale-105 transition-transform">
+            </div>
+
+            <div class="hidden md:flex items-center gap-10 ml-auto">
+                <a href="#sobre" class="text-verde-escuro font-ligth hover:text-marrom transition">Quem somos</a>
+                <a href="#sobre" class="text-verde-escuro font-ligth hover:text-marrom transition">Nossos pilares</a>
+                <a href="#clientes" class="text-verde-escuro font-ligth hover:text-marrom transition">Nossos
+                    clientes</a>
+                <a href="#contato"
+                    class="bg-verde-escuro text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition-transform">
+                    Fale Conosco
+                </a>
+            </div>
+
+            <div class="md:hidden text-verde-escuro text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+        </div>
     </nav>
 
     <header class="relative py-24 px-6 text-center text-white header-bg">
         <div class="absolute inset-0 bg-verde-escuro opacity-80"></div>
 
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 uppercase">A força da floresta despertando o seu dia.
+            <h1
+                class="text-4xl md:text-6xl font-extrabold mb-6 uppercase animate__animated animate__fadeIn animate__slow">
+                A força da floresta despertando o seu dia.
             </h1>
-            <p class="text-lg md:text-xl mb-10 text-stone-200">Produção em larga escala com a essência e o vigor do
+            <p class="text-lg md:text-xl mb-10 text-stone-200 animate__animated animate__fadeInDown">Produção em larga
+                escala com a essência e o vigor do
                 Amazonas. <br> Grãos selecionados para quem busca o autêntico sabor da terra.</p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#sobre"
@@ -118,8 +141,9 @@
     <section id="sobre" class="py-24 px-6 bg-stone-100">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Nossos Pilares</h2>
-                <h3 class="text-3xl md:text-5xl font-black text-verde-escuro uppercase">A Excelência do Café Amazônico
+                <h2 data-aos="fade-up" class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Nossos Pilares</h2>
+                <h3 data-aos="fade-up" class="text-3xl md:text-5xl font-black text-verde-escuro uppercase">
+                    A Excelência do Café Amazônico
                 </h3>
                 <div class="w-24 h-1 bg-marrom mx-auto mt-6"></div>
             </div>
@@ -188,13 +212,13 @@
     </section>
 
 
-    <section class="bg-marrom py-24 overflow-hidden">
+    <section id="clientes" class="bg-marrom py-24 overflow-hidden">
         <div class="max-w-6xl mx-auto px-6">
 
             <div class="text-center text-white mb-20">
-                <h2 class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">Potencialize sua Indústria com
+                <h2 data-aos="fade-up" class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">Potencialize sua Indústria com
                     o Grão da Amazônia</h2>
-                <p class="text-lg md:text-xl mb-10 opacity-90 max-w-3xl mx-auto">
+                <p data-aos="fade-up" class="text-lg md:text-xl mb-10 opacity-90 max-w-3xl mx-auto">
                     Seja para exportação, marcas próprias ou grandes redes de varejo, entregamos constância sensorial e
                     volume industrial com certificação de origem.
                 </p>
@@ -279,46 +303,116 @@
         </div>
     </section>
 
-    <section id="contato" class="py-20 px-6">
-        <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-2xl border-t-8 border-verde-escuro">
-            <h2 class="text-3xl font-bold text-verde-escuro mb-2 text-center uppercase">Entre em Contato</h2>
-            <p class="text-center text-gray-600 mb-8">Nossa equipe comercial retornará em até 24h.</p>
+    <section id="contato" class="py-24 px-6 bg-white">
+        <div data-aos="fade-up" class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
 
-            <form action="#" class="space-y-6">
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Nome Completo / Empresa</label>
-                    <input type="text" placeholder="Ex: Café Distribuidora Manaus"
-                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom">
+                <div class="space-y-8">
+                    <div>
+                        <h2  class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Canais de Atendimento
+                        </h2>
+                        <h3  class="text-4xl md:text-5xl font-black text-verde-escuro uppercase leading-tight">
+                            Fale com um de nossos <span class="text-marrom">especialistas</span>
+                        </h3>
+                        <div class="w-20 h-1 bg-marrom mt-6"></div>
+                    </div>
+
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Seja para suprir sua rede de supermercados, iniciar uma marca própria ou exportar o sabor da
+                        Amazônia, nossa equipe está pronta para desenhar a logística ideal para o seu volume.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="text-marrom text-2xl mt-1">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-verde-escuro uppercase">Torne-se um Distribuidor</h4>
+                                <p class="text-sm text-gray-500">Condições exclusivas para contratos de fornecimento
+                                    contínuo.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="text-marrom text-2xl mt-1">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-verde-escuro uppercase">Retorno Ágil</h4>
+                                <p class="text-sm text-gray-500">Analisamos sua proposta comercial em até 24 horas
+                                    úteis.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="text-marrom text-2xl mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-verde-escuro uppercase">Base em Manaus</h4>
+                                <p class="text-sm text-gray-500">Logística estratégica para todo o território nacional e
+                                    internacional.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-2">E-mail Corporativo</label>
-                    <input type="email" placeholder="seu@email.com.br"
-                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom">
+
+                <div data-aos="fade-up" class="bg-stone-50 p-8 md:p-10 rounded-3xl shadow-xl border-r-8 border-verde-escuro">
+                    <form action="#" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-bold text-verde-escuro mb-2 uppercase tracking-wide">Nome
+                                ou Razão Social</label>
+                            <input type="text" placeholder="Ex: Café Distribuidora Manaus"
+                                class="w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-marrom bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-verde-escuro mb-2 uppercase tracking-wide">E-mail
+                                Corporativo</label>
+                            <input type="email" placeholder="contato@empresa.com.br"
+                                class="w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-marrom bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-verde-escuro mb-2 uppercase tracking-wide">Volume
+                                Estimado (Sacas)</label>
+                            <select
+                                class="w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-marrom bg-white transition">
+                                <option>Até 50 sacas</option>
+                                <option>50 a 200 sacas</option>
+                                <option>Acima de 200 sacas</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-verde-escuro mb-2 uppercase tracking-wide">Sua
+                                Mensagem</label>
+                            <textarea rows="4" placeholder="Fale sobre sua necessidade de escala ou distribuição..."
+                                class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-marrom bg-white transition"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-verde-escuro text-white py-5 rounded-xl font-bold text-lg hover:bg-marrom transition-all duration-300 shadow-lg uppercase tracking-tighter">
+                            Solicitar Orçamento
+                        </button>
+                    </form>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Volume Mensal Estimado (Sacas)</label>
-                    <select
-                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom">
-                        <option>Até 50 sacas</option>
-                        <option>50 a 200 sacas</option>
-                        <option>Acima de 200 sacas</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Mensagem</label>
-                    <textarea rows="4" placeholder="Como podemos ajudar o seu negócio?"
-                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom"></textarea>
-                </div>
-                <button type="submit"
-                    class="w-full bg-verde-escuro text-white py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition shadow-lg uppercase">Enviar
-                    Pedido de Cotação</button>
-            </form>
+
+            </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center border-t border-gray-200">
-        <p class="text-gray-500 text-sm">© 2026 Café Selvagem - Produzido com orgulho no Amazonas.</p>
+    <footer class="py-10 bg-gray-900 text-center border-t border-gray-200">
+        <p class="text-gray-200 text-sm">© 2026 Café Selvagem - Produzido com orgulho no Amazonas.</p>
+        <a href="https://felip-nine.vercel.app/" class="text-gray-500 text-sm"> Desenvolvido por <span
+                class="font-bold"> Evo Design </span> </a>
+
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Duração da animação em milissegundos
+            once: true,     // Se a animação deve acontecer apenas uma vez ao rolar
+        });
+    </script>
 
 </body>
 
