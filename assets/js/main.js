@@ -1,14 +1,18 @@
-const token = grecaptcha.getResponse();
 
-if (!token) {
-  alert("Confirme que você não é um robô");
-  return;
-}
 
 const form = document.getElementById("form-contato");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // impede reload
+
+
+    const token = grecaptcha.getResponse();
+
+
+    if (!token) {
+        alert("Confirme que você não é um robô");
+        return;
+    }
 
     const nome = document.getElementById("nome").value;
     const email = document.getElementById("email").value;
