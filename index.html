@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Selvagem | O Poder da Amazônia em cada Grão</title>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuração da fonte global e cores personalizadas */
+        body { font-family: 'Rubik', sans-serif; }
+        
+        .bg-marrom { background-color: #6A462C; }
+        .bg-marrom-claro { background-color: #f8a468; }
+        .text-marrom { color: #6A462C; }
+        .bg-verde-escuro { background-color: #003629; }
+        .text-verde-escuro { color: #003629; }
+        .border-marrom { border-color: #6A462C; }
+        
+        /* Estilo para o fundo opaco no Header */
+        .header-bg {
+            background-image: url('./assets/image/bg.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-800">
+
+    <nav class="p-4 flex justify-between items-center bg-white shadow-sm">
+        <img src="./assets/image/03.png" alt="Logo Café Selvagem" class="w-[80px] h-[80px] object-contain">
+        <a href="#contato" class="bg-verde-escuro text-white px-6 py-2 rounded-lg font-ligth hover:bg-opacity-90 transition">Fale Conosco</a>
+    </nav>
+
+    <header class="relative py-24 px-6 text-center text-white header-bg">
+        <div class="absolute inset-0 bg-verde-escuro opacity-80"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 uppercase">A força da floresta despertando o seu dia.</h1>
+            <p class="text-lg md:text-xl mb-10 text-stone-200">Produção em larga escala com a essência e o vigor do Amazonas. <br> Grãos selecionados para quem busca o autêntico sabor da terra.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#sobre" class="bg-white text-verde-escuro py-4 px-8 rounded-lg font-medium text-lg hover:scale-105 transition-transform">Quero Conhecer</a>
+                <a href="#contato" class="border-2 border-white py-4 px-8 rounded-lg font-bold text-lg hover:bg-white/20 hover:text-verde-escuro transition">Seja um Distribuidor</a>
+            </div>
+        </div>
+    </header>
+
+<section id="sobre" class="py-24 px-6 bg-stone-100">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">Nossos Pilares</h2>
+            <h3 class="text-3xl md:text-5xl font-black text-verde-escuro uppercase">A Excelência do Café Amazônico</h3>
+            <div class="w-24 h-1 bg-marrom mx-auto mt-6"></div>
+        </div>
+
+        <div class="flex overflow-x-auto gap-8 pb-10 no-scrollbar snap-x snap-mandatory">
+            
+            <div class="min-w-[300px] md:min-w-0 md:flex-1 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./assets/image/cafe.jpg" alt="Plantação Amazônica" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-8">
+                    <div class="bg-stone-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-seedling text-2xl text-verde-escuro"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">Terroir Único</h4>
+                    <p class="text-gray-600 leading-relaxed">Nossas fazendas utilizam a umidade natural da floresta e solo rico em nutrientes orgânicos, resultando em um café com baixa acidez e notas de castanhas típicas da região.</p>
+                </div>
+            </div>
+
+            <div class="min-w-[300px] md:min-w-0 md:flex-1 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./assets/image/tecnologhy.jpg" alt="Tecnologia de Produção" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-8">
+                    <div class="bg-stone-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-microchip text-2xl text-verde-escuro"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">Tecnologia B2B</h4>
+                    <p class="text-gray-600 leading-relaxed">Operamos com maquinário de última geração para torrefação controlada via software, garantindo que o perfil de sabor da sua marca seja idêntico em todas as remessas.</p>
+                </div>
+            </div>
+
+            <div class="min-w-[300px] md:min-w-0 md:flex-1 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+                <div class="h-48 overflow-hidden">
+                    <img src="./assets/image/industria.jpg" alt="Logística e Escala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-8">
+                    <div class="bg-stone-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-truck-fast text-2xl text-verde-escuro"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">Capacidade Industrial</h4>
+                    <p class="text-gray-600 leading-relaxed">Com produção de milhares de sacas mensais, estamos prontos para atender contratos globais e indústrias de larga escala com logística integrada saindo de Manaus.</p>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="flex justify-center gap-2 md:hidden">
+            <div class="w-8 h-1 bg-verde-escuro rounded-full"></div>
+            <div class="w-2 h-1 bg-gray-300 rounded-full"></div>
+            <div class="w-2 h-1 bg-gray-300 rounded-full"></div>
+        </div>
+    </div>
+</section>
+    <section class="bg-marrom py-16 px-6 text-white text-center">
+        <h2 class="text-3xl font-bold mb-4 uppercase">Pronto para elevar o nível do seu café?</h2>
+        <p class="mb-8 opacity-90">Fornecemos sacas de café verde ou torrado para indústrias e grandes redes.</p>
+        <button onclick="document.getElementById('contato').scrollIntoView()" class="bg-verde-escuro py-3 px-10 rounded-full font-bold uppercase tracking-widest hover:shadow-xl transition">Solicitar Cotação</button>
+    </section>
+
+    <section id="contato" class="py-20 px-6">
+        <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-2xl border-t-8 border-verde-escuro">
+            <h2 class="text-3xl font-bold text-verde-escuro mb-2 text-center uppercase">Entre em Contato</h2>
+            <p class="text-center text-gray-600 mb-8">Nossa equipe comercial retornará em até 24h.</p>
+            
+            <form action="#" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Nome Completo / Empresa</label>
+                    <input type="text" placeholder="Ex: Café Distribuidora Manaus" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">E-mail Corporativo</label>
+                    <input type="email" placeholder="seu@email.com.br" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Volume Mensal Estimado (Sacas)</label>
+                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom">
+                        <option>Até 50 sacas</option>
+                        <option>50 a 200 sacas</option>
+                        <option>Acima de 200 sacas</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Mensagem</label>
+                    <textarea rows="4" placeholder="Como podemos ajudar o seu negócio?" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-marrom"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-verde-escuro text-white py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition shadow-lg uppercase">Enviar Pedido de Cotação</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-gray-200">
+        <p class="text-gray-500 text-sm">© 2026 Café Selvagem - Produzido com orgulho no Amazonas.</p>
+    </footer>
+
+</body>
+</html>
