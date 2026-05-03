@@ -146,14 +146,15 @@
 
     <header id="hero" class="relative py-24 px-6 text-center text-white header-bg">
 
-<div class="absolute top-6 left-6 z-20">
-    <select onchange="changeLanguage(this.value)"
-        class="bg-white/90 backdrop-blur text-verde-escuro rounded-full px-4 py-2 text-sm font-bold shadow-md outline-none cursor-pointer">
-        <option value="">Selecione o Idioma</option>
-        <option value="pt">🇧🇷 PT</option>
-        <option value="en">🇺🇸 EN</option>
-    </select>
-</div>
+        <div id="google_translate_element" class="hidden"></div>
+        <div class="absolute top-6 left-6 z-20">
+            <select onchange="changeLanguage(this.value)"
+                class="bg-white/90 backdrop-blur text-verde-escuro rounded-full px-4 py-2 text-sm font-bold shadow-md outline-none cursor-pointer">
+                <option value="">Selecione o Idioma</option>
+                <option value="en">🇺🇸 EN </option>
+                <option value="pt">🇧🇷 PT </option>
+            </select>
+        </div>
 
         </div>
         <div class="absolute inset-0 bg-verde-escuro opacity-80"></div>
@@ -163,7 +164,7 @@
 
         <div class="relative z-10 max-w-4xl mx-auto">
 
-          
+
 
             <h1
                 class="text-3xl md:text-6xl font-extrabold leading-tight mb-5 uppercase animate__animated animate__fadeIn animate__slow">
