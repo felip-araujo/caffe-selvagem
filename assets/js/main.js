@@ -37,3 +37,14 @@ form.addEventListener("submit", async (e) => {
         alert("Erro ao enviar");
     }
 });
+
+
+
+function scrollSobreCards(value) {
+    const container = document.getElementById('sobreCardsContainer');
+
+    container.scrollBy({
+        left: value,
+        behavior: 'smooth'
+    });
+}

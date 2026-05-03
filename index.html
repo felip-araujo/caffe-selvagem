@@ -104,7 +104,8 @@
             <div class="hidden md:flex items-center gap-10 ml-auto">
                 <a href="#quem-somos" class="text-verde-escuro font-ligth hover:text-marrom transition">Quem somos</a>
                 <a href="#sobre" class="text-verde-escuro font-ligth hover:text-marrom transition">Nossos pilares</a>
-                <a href="#diferencial-producao" class="text-verde-escuro font-ligth hover:text-marrom transition">Nosso diferencial</a>
+                <a href="#diferencial-producao" class="text-verde-escuro font-ligth hover:text-marrom transition">Nosso
+                    diferencial</a>
                 <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20me%20tornar%20um%20investidor"
                     class="text-verde-escuro font-ligth hover:text-marrom transition">Seja um
                     Investidor</a>
@@ -120,9 +121,9 @@
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-gray-100 p-6 space-y-4 shadow-inner">
-            <a href="#sobre" class="block text-verde-escuro font-ligth uppercase py-2">Quem somos</a>
+            <a href="#quem-somos" class="block text-verde-escuro font-ligth uppercase py-2">Quem somos</a>
             <a href="#sobre" class="block text-verde-escuro font-ligth uppercase py-2">Nossos pilares</a>
-            <a href="#clientes" class="block text-verde-escuro font-ligth uppercase py-2">Nossos clientes</a>
+            <a href="#diferencial-producao" class="block text-verde-escuro font-ligth uppercase py-2">Nosso diferencial</a>
             <a href="#contato" class="block bg-marrom text-white text-center py-4 rounded-lg font-bold">FALE CONOSCO</a>
         </div>
     </nav>
@@ -139,7 +140,7 @@
                 escala com a essência e o vigor da
                 Amazônia. A força da floresta transformada em investimento sustentável.</p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#sobre"
+                <a href="#quem-somos"
                     class="bg-white text-verde-escuro py-4 px-8 rounded-lg font-medium text-lg hover:scale-105 transition-transform">Quero
                     Conhecer</a>
                 <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20me%20tornar%20um%20investidor"
@@ -247,110 +248,194 @@
             </div>
 
             <!-- GRID RESPONSIVO MELHORADO -->
-            <div class="grid grid-flow-col auto-cols-[320px] gap-8 overflow-x-auto pb-10 no-scrollbar snap-x snap-mandatory
-            lg:grid-flow-row lg:grid-cols-4 lg:auto-cols-auto lg:overflow-visible
-            xl:gap-10">
+            <div class="relative">
 
-                <!-- CARD -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
-
-                    <div class="h-52 overflow-hidden">
-                        <img src="./assets/image/coffe-.jpeg"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
-
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-leaf text-2xl text-verde-escuro"></i>
-                        </div>
-
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Sustentabilidade Amazônica
-                        </h4>
-
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            Produzimos café em harmonia com a floresta, respeitando o ciclo natural da terra e
-                            garantindo práticas 100% orgânicas que preservam o meio ambiente e valorizam a
-                            biodiversidade.
-                        </p>
-                    </div>
+                <!-- FADE ESQUERDA -->
+                <div
+                    class="hidden lg:block absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-stone-100 via-stone-100/5 to-transparent z-10 pointer-events-none">
                 </div>
 
-                <!-- CARD -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-xl border-b-4 border-marrom group">
-
-                    <div class="h-52 overflow-hidden">
-                        <img src="./assets/image/tecnologhy.jpg"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
-
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-tractor text-2xl text-verde-escuro"></i>
-                        </div>
-
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Inovação e Tecnologia
-                        </h4>
-
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            Utilizamos insumos e técnicas modernas de manejo agrícola que aumentam a produtividade sem
-                            comprometer o equilíbrio ecológico. A tecnologia é nossa aliada para transformar cada
-                            hectare em eficiência e qualidade.
-                        </p>
-                    </div>
+                <!-- FADE DIREITA -->
+                <div
+                    class="hidden lg:block absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-stone-100 via-stone-100/5 to-transparent z-10 pointer-events-none">
                 </div>
 
-                <!-- CARD -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-xl border-b-4 border-marrom group">
+                <!-- SETA ESQUERDA -->
+                <button onclick="scrollSobreCards(-420)"
+                    class="hidden lg:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow-lg w-11 h-11 rounded-full text-verde-escuro hover:bg-verde-escuro hover:text-white transition">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
 
-                    <div class="h-52 overflow-hidden">
-                        <img src="./assets/image/certify.webp"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
+                <!-- SETA DIREITA -->
+                <button onclick="scrollSobreCards(420)"
+                    class="hidden lg:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow-lg w-11 h-11 rounded-full text-verde-escuro hover:bg-verde-escuro hover:text-white transition">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
 
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-certificate text-2xl text-verde-escuro"></i>
+                <div id="sobreCardsContainer"
+                    class="flex gap-8 xl:gap-10 overflow-x-auto pb-10 no-scrollbar snap-x snap-mandatory scroll-smooth">
+
+                    <!-- CARD -->
+                    <div
+                        class="w-[320px] lg:w-[360px] xl:w-[380px] shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+
+                        <div class="h-52 overflow-hidden">
+                            <img src="./assets/image/sustentabilidade.jpeg "
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         </div>
 
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Certificação e Credibilidade
-                        </h4>
+                        <div class="p-8">
+                            <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-leaf text-2xl text-verde-escuro"></i>
+                            </div>
 
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            Buscamos certificações reconhecidas internacionalmente que comprovam nossa responsabilidade
-                            ambiental, social e de governança. Isso eleva o valor do produto e fortalece a confiança dos
-                            investidores e consumidores.
-                        </p>
-                    </div>
-                </div>
+                            <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
+                                Sustentabilidade Amazônica
+                            </h4>
 
-                <!-- CARD -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-xl border-b-4 border-marrom group">
-
-                    <div class="h-52 overflow-hidden">
-                        <img src="./assets/image/familiar.webp"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <p class="text-gray-600 leading-relaxed text-[15px]">
+                                Produzimos café em harmonia com a floresta, respeitando o ciclo natural da terra e
+                                garantindo práticas 100% orgânicas que preservam o meio ambiente e valorizam a
+                                biodiversidade.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-people-group text-2xl text-verde-escuro"></i>
+                    <!-- CARD -->
+                    <div
+                        class="w-[320px] lg:w-[360px] xl:w-[380px] shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+
+                        <div class="h-52 overflow-hidden">
+                            <img src="./assets/image/tecnologhy.jpg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         </div>
 
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Desenvolvimento Regional
-                        </h4>
+                        <div class="p-8">
+                            <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-tractor text-2xl text-verde-escuro"></i>
+                            </div>
 
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            Integramos a agricultura familiar à nossa cadeia produtiva, promovendo inclusão social,
-                            geração de renda e fortalecimento das comunidades locais. O Café Selvagem é também um motor
-                            de desenvolvimento sustentável para a Amazônia.
-                        </p>
+                            <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
+                                Inovação e Tecnologia
+                            </h4>
+
+                            <p class="text-gray-600 leading-relaxed text-[15px]">
+                                Utilizamos insumos e técnicas modernas de manejo agrícola que aumentam a produtividade
+                                sem
+                                comprometer o equilíbrio ecológico. A tecnologia é nossa aliada para transformar cada
+                                hectare em eficiência e qualidade.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
+                    <!-- CARD -->
+                    <div
+                        class="w-[320px] lg:w-[360px] xl:w-[380px] shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+
+                        <div class="h-52 overflow-hidden">
+                            <img src="./assets/image/certify.webp"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+
+                        <div class="p-8">
+                            <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-certificate text-2xl text-verde-escuro"></i>
+                            </div>
+
+                            <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
+                                Certificação e Credibilidade
+                            </h4>
+
+                            <p class="text-gray-600 leading-relaxed text-[15px]">
+                                Buscamos certificações reconhecidas internacionalmente que comprovam nossa
+                                responsabilidade
+                                ambiental, social e de governança. Isso eleva o valor do produto e fortalece a confiança
+                                dos
+                                investidores e consumidores.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD -->
+                    <div
+                        class="w-[320px] lg:w-[360px] xl:w-[380px] shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+
+                        <div class="h-52 overflow-hidden">
+                            <img src="./assets/image/familiar.webp"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+
+                        <div class="p-8">
+                            <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-people-group text-2xl text-verde-escuro"></i>
+                            </div>
+
+                            <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
+                                Desenvolvimento Regional
+                            </h4>
+
+                            <p class="text-gray-600 leading-relaxed text-[15px]">
+                                Integramos a agricultura familiar à nossa cadeia produtiva, promovendo inclusão social,
+                                geração de renda e fortalecimento das comunidades locais. O Café Selvagem é também um
+                                motor
+                                de desenvolvimento sustentável para a Amazônia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD -->
+                    <div
+                        class="w-[320px] lg:w-[360px] xl:w-[380px] shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+
+                        <div class="h-52 overflow-hidden">
+                            <img src="./assets/image/coffe-.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+
+                        <div class="p-8">
+                            <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-mountain-sun text-2xl text-verde-escuro"></i>
+                            </div>
+
+                            <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
+                                Terroir Único
+                            </h4>
+
+                            <p class="text-gray-600 leading-relaxed text-[15px]">
+                                Nossas produções utilizam a umidade natural da Amazônia e solo rico em nutrientes
+                                orgânicos,
+                                resultando em um café com baixa acidez e notas de castanhas típicas da região.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD -->
+                    <div
+                        class="w-[320px] lg:w-[360px] xl:w-[380px] shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
+
+                        <div class="h-52 overflow-hidden">
+                            <img src="./assets/image/industria.jpg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+
+                        <div class="p-8">
+                            <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-industry text-2xl text-verde-escuro"></i>
+                            </div>
+
+                            <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
+                                Capacidade Industrial
+                            </h4>
+
+                            <p class="text-gray-600 leading-relaxed text-[15px]">
+                                Com produção de milhares de sacas anuais, estamos prontos para atender contratos globais
+                                e
+                                indústrias de larga escala com logística integrada saindo de Manaus.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -419,37 +504,7 @@
                     </div>
                 </div>
             </div>
-            <!-- 
-            <div class="text-center">
-                <p class="text-white/50 uppercase tracking-widest text-xs font-bold mb-8">Empresas que confiam na nossa
-                    escala</p>
 
-                <div class="relative flex overflow-hidden">
-                    <div class="animate-scroll flex items-center gap-16 md:gap-32">
-                        <img src="./assets/image/clients/Assai.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/Iffod.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/Uber.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/microsoft.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/google.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-
-                        <img src="./assets/image/clients/Assai.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/Iffod.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/Uber.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/microsoft.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                        <img src="./assets/image/clients/google.png" alt="Cliente"
-                            class="h-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
 
@@ -736,7 +791,18 @@
     </script>
 
 
+
+
     <script src="./assets/js/main.js"></script>
+
+
+    <a href="https://wa.me/5592992571483?text=Olá,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20me%20tornar%20um%20investidor"
+        target="_blank"
+        class="fixed bottom-8 right-4 md:bottom-6 md:right-6 z-50 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:scale-110 hover:bg-green-600 transition-all duration-300">
+
+        <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
+
+    </a>
 
 
 </body>
