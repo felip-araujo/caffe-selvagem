@@ -87,18 +87,42 @@
             background-position: center;
         }
     </style>
+    <style>
+        .goog-te-banner-frame,
+        .goog-te-balloon-frame,
+        .goog-tooltip,
+        .goog-tooltip:hover {
+            display: none !important;
+        }
+
+        .goog-text-highlight {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        body {
+            top: 0 !important;
+        }
+
+        #google_translate_element {
+            display: none !important;
+        }
+    </style>
+
 </head>
 
 <body class="bg-stone-50 text-gray-800">
 
     <nav class="bg-white shadow-sm sticky top-0 z-50">
+
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+
 
             <a href="#hero">
                 <div class="flex-shrink-0">
                     <img src="./assets/image/03.png" alt="Logo Café Selvagem" class="w-[80px] h-[80px] object-contain">
                 </div>
-
             </a>
 
             <div class="hidden md:flex items-center gap-10 ml-auto">
@@ -107,8 +131,7 @@
                 <a href="#diferencial-producao" class="text-verde-escuro font-ligth hover:text-marrom transition">Nosso
                     diferencial</a>
                 <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20me%20tornar%20um%20investidor"
-                    class="text-verde-escuro font-ligth hover:text-marrom transition">Seja um
-                    Investidor</a>
+                    class="text-verde-escuro font-ligth hover:text-marrom transition">Seja um Investidor</a>
                 <a href="#contato"
                     class="bg-verde-escuro text-white px-6 py-3 rounded-lg font-bold hover:bg-marrom transition shadow-md">
                     Fale conosco
@@ -119,19 +142,29 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-gray-100 p-6 space-y-4 shadow-inner">
-            <a href="#quem-somos" class="block text-verde-escuro font-ligth uppercase py-2">Quem somos</a>
-            <a href="#sobre" class="block text-verde-escuro font-ligth uppercase py-2">Nossos pilares</a>
-            <a href="#diferencial-producao" class="block text-verde-escuro font-ligth uppercase py-2">Nosso diferencial</a>
-            <a href="#contato" class="block bg-marrom text-white text-center py-4 rounded-lg font-bold">FALE CONOSCO</a>
-        </div>
     </nav>
 
     <header id="hero" class="relative py-24 px-6 text-center text-white header-bg">
+
+<div class="absolute top-6 left-6 z-20">
+    <select onchange="changeLanguage(this.value)"
+        class="bg-white/90 backdrop-blur text-verde-escuro rounded-full px-4 py-2 text-sm font-bold shadow-md outline-none cursor-pointer">
+        <option value="">Selecione o Idioma</option>
+        <option value="pt">🇧🇷 PT</option>
+        <option value="en">🇺🇸 EN</option>
+    </select>
+</div>
+
+        </div>
         <div class="absolute inset-0 bg-verde-escuro opacity-80"></div>
 
+
+
+
         <div class="relative z-10 max-w-4xl mx-auto">
+
+          
+
             <h1
                 class="text-3xl md:text-6xl font-extrabold leading-tight mb-5 uppercase animate__animated animate__fadeIn animate__slow">
                 A força da floresta despertando seu dia.
@@ -804,6 +837,32 @@
 
     </a>
 
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',
+                includedLanguages: 'pt,en',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function changeLanguage(lang) {
+            if (!lang) return;
+
+            const interval = setInterval(() => {
+                const select = document.querySelector('.goog-te-combo');
+
+                if (select) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                    clearInterval(interval);
+                }
+            }, 300);
+        }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 
