@@ -112,12 +112,8 @@
 </head>
 
 <body class="bg-stone-50 text-gray-800">
-
     <nav class="bg-white shadow-sm sticky top-0 z-50">
-
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-
-
 
             <a href="#hero">
                 <div class="flex-shrink-0">
@@ -126,12 +122,12 @@
             </a>
 
             <div class="hidden md:flex items-center gap-10 ml-auto">
-                <a href="#quem-somos" class="text-verde-escuro font-ligth hover:text-marrom transition">Quem somos</a>
-                <a href="#sobre" class="text-verde-escuro font-ligth hover:text-marrom transition">Nossos pilares</a>
-                <a href="#diferencial-producao" class="text-verde-escuro font-ligth hover:text-marrom transition">Nosso
+                <a href="#quem-somos" class="text-verde-escuro font-light hover:text-marrom transition">Quem somos</a>
+                <a href="#sobre" class="text-verde-escuro font-light hover:text-marrom transition">Nossos pilares</a>
+                <a href="#diferencial-producao" class="text-verde-escuro font-light hover:text-marrom transition">Nosso
                     diferencial</a>
                 <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20me%20tornar%20um%20investidor"
-                    class="text-verde-escuro font-ligth hover:text-marrom transition">Seja um Investidor</a>
+                    class="text-verde-escuro font-light hover:text-marrom transition">Seja um Investidor</a>
                 <a href="#contato"
                     class="bg-verde-escuro text-white px-6 py-3 rounded-lg font-bold hover:bg-marrom transition shadow-md">
                     Fale conosco
@@ -141,6 +137,17 @@
             <button id="mobile-menu-button" class="md:hidden text-verde-escuro text-3xl focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 flex flex-col gap-4">
+            <a href="#quem-somos" class="text-verde-escuro font-light">Quem somos</a>
+            <a href="#sobre" class="text-verde-escuro font-light">Nossos pilares</a>
+            <a href="#diferencial-producao" class="text-verde-escuro font-light">Nosso diferencial</a>
+            <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20me%20tornar%20um%20investidor"
+                class="text-verde-escuro font-light">Seja um Investidor</a>
+            <a href="#contato" class="bg-verde-escuro text-white px-6 py-3 rounded-lg font-bold text-center">
+                Fale conosco
+            </a>
         </div>
     </nav>
 
@@ -808,6 +815,7 @@
     </script>
     <script>
         const btn = document.getElementById('mobile-menu-button');
+        console.log('click')
         const menu = document.getElementById('mobile-menu');
 
         btn.addEventListener('click', () => {
