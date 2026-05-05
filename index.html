@@ -156,149 +156,146 @@
 
 
     <!-- HERO -->
+    <section>
+        <header id="hero" class="relative min-h-screen py-24 px-6 text-center text-white header-bg flex items-center">
 
-    <header id="hero" class="relative min-h-screen py-24 px-6 text-center text-white header-bg flex items-center">
+            <div id="google_translate_element" class="hidden"></div>
 
-        <div id="google_translate_element" class="hidden"></div>
-
-        <div class="absolute top-6 left-6 z-20">
-            <select onchange="changeLanguage(this.value)"
-                class="bg-white/90 backdrop-blur text-verde-escuro rounded-full px-4 py-2 text-sm font-medium shadow-md outline-none cursor-pointer">
-                <option value="">Idioma</option>
-                <option value="en">🇺🇸 EN</option>
-                <option value="pt">🇧🇷 PT</option>
-            </select>
-        </div>
-
-        <div class="absolute inset-0 bg-verde-escuro opacity-85"></div>
-
-        <div class="relative z-10 max-w-4xl mx-auto">
-
-            <h1
-                class="text-3xl md:text-6xl font-extrabold leading-tight mb-6 uppercase animate__animated animate__fadeIn animate__slow">
-                Invista em um Futuro Sustentável na Amazônia
-            </h1>
-
-            <p
-                class="max-w-3xl mx-auto text-base md:text-lg mb-8 text-stone-200 leading-relaxed animate__animated animate__fadeInDown">
-                Transformamos o potencial da Amazônia em um projeto de café sustentável, com gestão técnica,
-                visão de longo prazo e foco em crescimento responsável.
-            </p>
-
-            
-            <!-- PROVAS EM CARD (VERSÃO INTERMEDIÁRIA) -->
-            <div class="  grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-8">
-
-                <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl px-5 py-4 text-left">
-                    <p class="text-xl md:text-2xl font-semibold text-white leading-none">
-                        +3.000
-                    </p>
-                    <p class="text-sm text-stone-200 mt-1 leading-snug">
-                        hectares produtivos na Amazônia
-                    </p>
-                </div>
-
-                <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl px-5 py-4 text-left">
-                    <p class="text-xl md:text-2xl font-semibold text-white leading-none">
-                        Parcerias
-                    </p>
-                    <p class="text-sm text-stone-200 mt-1 leading-snug">
-                        com investidores e operadores do setor
-                    </p>
-                </div>
-
+            <div class="absolute top-4 left-6 z-20">
+                <select onchange="changeLanguage(this.value)"
+                    class="bg-white/90 backdrop-blur text-black rounded-lg px-4 py-2 text-sm font-ligth shadow-md outline-none cursor-pointer">
+                    <option value="">Idioma</option>
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="pt">🇧🇷 PT</option>
+                </select>
             </div>
 
-            <!-- CTA -->
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20uma%20proposta"
-                    class="bg-white text-verde-escuro py-4 px-8 flex items-center justify-center rounded-lg font-medium text-base hover:scale-105 transition-transform shadow-lg">
-                    Solicitar Proposta
-                </a>
+            <div class="absolute inset-0 bg-verde-escuro opacity-85"></div>
 
-                <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20comercial"
-                    class="flex items-center justify-center gap-2 text-center border border-white/70 py-4 px-8 rounded-lg font-medium text-base hover:scale-105 transition-transform bg-gray-700/20 hover:text-verde-escuro transition">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    Agendar Reunião
-                </a>
-            </div>
+            <div class="relative z-10 max-w-4xl mx-auto">
 
-        </div>
-    </header>
+                <h1
+                    class="text-4xl md:text-6xl font-bold leading-tight mb-6 uppercase animate__animated animate__fadeIn animate__slow">
+                    Invista em um Futuro Sustentável na Amazônia
+                </h1>
+
+                <p
+                    class="max-w-3xl mx-auto text-base md:text-lg mb-4 text-stone-200 leading-relaxed animate__animated animate__fadeInDown">
+                    Transformamos o potencial da Amazônia em um projeto de café sustentável, com gestão técnica,
+                    visão de longo prazo e foco em crescimento responsável.
+                </p>
 
 
+                <!-- PROVAS EM CARD (VERSÃO INTERMEDIÁRIA) -->
+                <div class="  grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6">
 
-
-    <!-- QUEM SOMOS  -->
-    <section id="quem-somos" class="py-24 px-4 lg:px-8 bg-white">
-        <div class="max-w-[1600px] mx-auto">
-
-            <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-                <!-- IMAGEM -->
-                <div data-aos="fade-right" class="relative group">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl border-b-4 border-marrom">
-                        <img src="./assets/image/Cafe Selvagem - Cafezais.jpg" alt="Café Selvagem na Amazônia"
-                            class="w-full h-[420px] md:h-[540px] object-cover group-hover:scale-105 transition duration-700">
-                    </div>
-
-                    <div
-                        class="absolute -bottom-8 -right-4 md:-right-8 bg-verde-escuro text-white rounded-3xl p-6 md:p-8 shadow-xl max-w-xs">
-                        <p class="text-4xl font-black  mb-1">3.000+</p>
-                        <p class="uppercase tracking-widest text-sm font-bold">
-                            hectares de potencial produtivo
+                    <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl px-5 py-4 text-left">
+                        <p class="text-xl md:text-2xl font-semibold text-white leading-none">
+                            +3.000
+                        </p>
+                        <p class="text-sm text-stone-200 mt-1 leading-snug">
+                            hectares produtivos na Amazônia
                         </p>
                     </div>
+
+                    <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl px-5 py-4 text-left">
+                        <p class="text-xl md:text-2xl font-semibold text-white leading-none">
+                            Parcerias
+                        </p>
+                        <p class="text-sm text-stone-200 mt-1 leading-snug">
+                            com investidores e operadores do setor
+                        </p>
+                    </div>
+
                 </div>
 
-                <!-- TEXTO -->
-                <div data-aos="fade-left">
-                    <h2 class="text-marrom font-bold tracking-widest uppercase text-sm mb-3">
-                        Quem Somos
-                    </h2>
-
-                    <h3 class="text-3xl md:text-5xl font-black text-verde-escuro uppercase leading-tight mb-6">
-                        A força da Amazônia conectada ao investimento agrícola
-                    </h3>
-
-                    <div class="w-24 h-1 bg-marrom mb-8"></div>
-
-                    <div class="space-y-6 text-gray-600 leading-relaxed text-base md:text-lg">
-                        <p>
-                            Somos o <strong class="text-verde-escuro">Café Selvagem</strong>, um projeto inovador que
-                            une a força da Amazônia ao potencial do investimento agrícola. Nossa missão é transformar
-                            mais de 3.000 hectares de terra fértil em produção sustentável de café em larga escala,
-                            oferecendo aos investidores a oportunidade de participar diretamente desse mercado
-                            bilionário.
-                        </p>
-
-                        <p>
-                            No Café Selvagem, cada lote a partir de 1 hectare é cultivado e gerido por nossa equipe
-                            especializada, garantindo eficiência, qualidade e retorno. Mais do que uma produção
-                            agrícola, somos um movimento que conecta capital visionário à riqueza natural da floresta,
-                            criando valor econômico com responsabilidade ambiental.
-                        </p>
-
-                        <p>
-                            Com raízes amazônicas e visão global, acreditamos que investir em café é investir em
-                            tradição, consumo diário e futuro sustentável. Somos a ponte entre a autenticidade da terra
-                            e o crescimento dos seus aportes.
-                        </p>
-                    </div>
-
-                    <div class="mt-10  flex-col sm:flex-row gap-4">
-                        <a href="#contato"
-                            class=" text-center inline-flex items-center justify-center bg-verde-escuro text-white font-bold uppercase tracking-wider px-8 py-4 rounded-full hover:bg-marrom transition duration-300">
-                            Solicitar proposta por hectares
-                        </a>
-                    </div>
+                <!-- CTA -->
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20uma%20proposta"
+                        class="bg-white text-verde-escuro py-4 px-8 flex items-center justify-center rounded-lg font-medium text-base hover:scale-105 transition-transform shadow-lg">
+                        Solicitar Proposta
+                    </a>
                 </div>
+        </header>
 
-            </div>
-        </div>
     </section>
 
 
+    <!-- QUEM SOMOS -->
+    <section id="quem-somos" class="relative py-24 px-6 bg-gray-50 overflow-hidden">
+
+        <!-- GRID BACKGROUND SUTIL -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px),
+                               linear-gradient(90deg, #000 1px, transparent 1px);
+               background-size: 40px 40px;">
+        </div>
+
+        <div class="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+
+            <!-- TEXTO -->
+            <div>
+                <span class="text-verde-escuro text-sm tracking-widest uppercase font-medium">
+                    Quem Somos
+                </span>
+
+                <h2 class="text-3xl md:text-5xl font-semibold text-verde-escuro mt-4 leading-tight">
+                    Força e Conexão na Amazônia
+                </h2>
+
+                <p class="text-gray-600 text-base md:text-lg mt-6 leading-relaxed max-w-xl">
+                    O Café Selvagem une a vocação agrícola da Amazônia com gestão especializada
+                    e uma abordagem orientada ao crescimento sustentável.
+                </p>
+
+                <p class="text-gray-600 text-base md:text-lg mt-4 leading-relaxed max-w-xl">
+                    Desenvolvemos áreas produtivas com padrão técnico de manejo e visão de longo prazo,
+                    garantindo produtividade, consistência e segurança para parceiros e investidores.
+                </p>
+            </div>
+
+            <!-- BLOCO VISUAL / DE APOIO -->
+            <div class="bg-white rounded-2xl p-10 border border-gray-200 shadow-xl">
+
+                <div class="space-y-6">
+
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                            Produção
+                        </p>
+                        <p class="text-lg font-medium text-gray-900 leading-snug">
+                            Desenvolvimento de áreas produtivas com padrão técnico
+                        </p>
+                    </div>
+
+                    <div class="w-full h-px bg-gray-200"></div>
+
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                            Gestão
+                        </p>
+                        <p class="text-lg font-medium text-gray-900 leading-snug">
+                            Operação estruturada com visão de longo prazo
+                        </p>
+                    </div>
+
+                    <div class="w-full h-px bg-gray-200"></div>
+
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                            Segurança
+                        </p>
+                        <p class="text-lg font-medium text-gray-900 leading-snug">
+                            Foco em previsibilidade e solidez do projeto
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
     <!-- SOBRE -->
     <section id="sobre" class="py-24 px-4 lg:px-8 bg-stone-100">
         <div class="max-w-[1600px] mx-auto">
