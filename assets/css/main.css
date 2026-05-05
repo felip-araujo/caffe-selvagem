@@ -110,3 +110,11 @@
     transform: translateY(0);
   }
 }
+
+#diferenciais .group {
+  transform: translateY(0);
+}
+
+#diferenciais .group:hover {
+  transform: translateY(-4px);
+}

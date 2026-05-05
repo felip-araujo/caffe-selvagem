@@ -153,52 +153,71 @@
 
     <!-- HERO -->
     <section>
-        <header id="hero" class="relative min-h-screen py-24 px-6 text-center text-white header-bg flex items-center">
+        <header id="hero"
+            class="relative min-h-screen py-28 px-6 text-center text-white header-bg flex items-center overflow-hidden">
 
             <div id="google_translate_element" class="hidden"></div>
 
-            <div class="absolute top-4 left-6 z-20">
+            <!-- LANGUAGE -->
+            <div class="absolute top-6 left-6 z-20">
                 <select onchange="changeLanguage(this.value)"
-                    class="bg-white/90 backdrop-blur text-black rounded-lg px-4 py-2 text-sm font-ligth shadow-md outline-none cursor-pointer">
+                    class="bg-white/90 backdrop-blur text-black rounded-lg px-4 py-2 text-sm font-medium shadow-md outline-none cursor-pointer">
                     <option value="">Idioma</option>
                     <option value="en">🇺🇸 EN</option>
                     <option value="pt">🇧🇷 PT</option>
                 </select>
             </div>
 
-            <div class="absolute inset-0 bg-verde-escuro opacity-85"></div>
+            <!-- OVERLAY ESCURO PREMIUM -->
+            <div class="absolute inset-0 bg-black/70"></div>
 
+            <!-- GRADIENTE VERDE SUAVE -->
+            <div class="absolute inset-0 bg-gradient-to-b from-green-900/40 via-transparent to-black/70"></div>
+
+            <!-- LUZ DIFUSA -->
+            <div
+                class="absolute top-[-150px] right-[-150px] w-[500px] h-[500px] bg-green-500/20 rounded-full blur-3xl opacity-40">
+            </div>
+
+            <!-- GRID TEXTURE -->
+            <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px),
+                               linear-gradient(90deg, #fff 1px, transparent 1px);
+                   background-size: 60px 60px;">
+            </div>
+
+            <!-- CONTEÚDO -->
             <div class="relative z-10 max-w-4xl mx-auto">
 
                 <h1
-                    class="text-4xl md:text-6xl font-bold leading-tight mb-6 uppercase animate__animated animate__fadeIn animate__slow">
+                    class="text-4xl md:text-6xl font-semibold leading-tight mb-6 uppercase tracking-tight animate__animated animate__fadeIn animate__slow">
                     Invista em um Futuro Sustentável na Amazônia
                 </h1>
 
                 <p
-                    class="max-w-3xl mx-auto text-base md:text-lg mb-4 text-stone-200 leading-relaxed animate__animated animate__fadeInDown">
+                    class="max-w-3xl mx-auto text-base md:text-lg mb-4 text-zinc-300 leading-relaxed animate__animated animate__fadeInDown">
                     Transformamos o potencial da Amazônia em um projeto de café sustentável, com gestão técnica,
                     visão de longo prazo e foco em crescimento responsável.
                 </p>
 
+                <!-- PROVAS -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto mb-4">
 
-                <!-- PROVAS EM CARD (VERSÃO INTERMEDIÁRIA) -->
-                <div class="  grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6">
-
-                    <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl px-5 py-4 text-left">
-                        <p class="text-xl md:text-2xl font-semibold text-white leading-none">
+                    <div
+                        class="bg-white/[0.06] border border-white/10 backdrop-blur-md rounded-xl px-5 py-4 text-left hover:bg-white/[0.08] transition">
+                        <p class="text-xl md:text-2xl font-medium text-white leading-none">
                             +3.000
                         </p>
-                        <p class="text-sm text-stone-200 mt-1 leading-snug">
+                        <p class="text-sm text-zinc-300 mt-1">
                             hectares produtivos na Amazônia
                         </p>
                     </div>
 
-                    <div class="bg-white/10 border border-white/15 backdrop-blur-sm rounded-xl px-5 py-4 text-left">
-                        <p class="text-xl md:text-2xl font-semibold text-white leading-none">
+                    <div
+                        class="bg-white/[0.06] border border-white/10 backdrop-blur-md rounded-xl px-5 py-4 text-left hover:bg-white/[0.08] transition">
+                        <p class="text-xl md:text-2xl font-medium text-white leading-none">
                             Parcerias
                         </p>
-                        <p class="text-sm text-stone-200 mt-1 leading-snug">
+                        <p class="text-sm text-zinc-300 mt-1">
                             com investidores e operadores do setor
                         </p>
                     </div>
@@ -207,15 +226,17 @@
 
                 <!-- CTA -->
                 <div class="flex flex-col md:flex-row gap-4 justify-center">
+
                     <a href="https://wa.me/5592992571483?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20uma%20proposta"
-                        class="bg-white text-verde-escuro py-4 px-8 flex items-center justify-center rounded-lg font-medium text-base hover:scale-105 transition-transform shadow-lg">
+                        class="bg-white text-black py-4 px-8 rounded-xl font-medium text-base hover:scale-105 transition-transform shadow-xl">
                         Solicitar Proposta
                     </a>
                 </div>
+
+            </div>
+
         </header>
-
     </section>
-
 
     <!-- QUEM SOMOS -->
     <section id="quem-somos" class="relative py-24 px-6 bg-gray-50 border-t-8 border-b-8 overflow-hidden">
@@ -509,206 +530,155 @@
     </section>
 
 
-    <!-- CLIENTES -->
-    <section id="clientes" class="bg-marrom py-24 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6">
+    <!-- NOSSOS DIFERENCIAIS -->
+    <section id="diferenciais" class="relative py-32 px-6 bg-zinc-950 text-white overflow-hidden">
 
-            <div class="text-center text-white mb-20">
-                <h2 data-aos="fade-up" class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">
-                    POTENCIALIZE SEU INVESTIMENTO COM O 2º COMMODITIE MAIS NEGOCIADO DO BRASIL E PRODUZIDO NA AMAZÔNIA
-                </h2>
-                <p data-aos="fade-up" class="text-lg md:text-xl mb-10 opacity-90 max-w-3xl mx-auto">
-                    Seja para exportação, marcas próprias ou grandes redes de varejo, entregamos constância sensorial e
-                    volume industrial com certificação de origem.
-                </p>
-                <a href="https://wa.me/5592992571483?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20comercial"
-                    target="_blank"
-                    class="bg-verde-escuro text-white py-5 px-12 rounded-full font-bold uppercase tracking-widest hover:bg-gray-900/50 hover:text-verde-escuro transition-all duration-300 shadow-2xl inline-flex items-center gap-3 justify-center">
-
-                    <!-- Ícone WhatsApp -->
-                    <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
-
-                    Agendar Reunião Comercial
-                </a>
-            </div>
-
-            <div class="border-t border-white/20 mb-20"></div>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-24">
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10">
-                    <div class="flex text-yellow-500 mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-white italic mb-6">"Investir na Café Selvagem foi uma decisão estratégica que trouxe
-                        resultados reais para a minha empresa. Mesmo com alta demanda, a consistência e o padrão da
-                        linha premium se mantêm ao longo de todo o ano — algo raro no mercado. É um investimento que se
-                        traduz diretamente em qualidade, confiança e valor para o negócio."</p>
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 bg-verde-escuro rounded-full flex items-center justify-center font-bold text-white">
-                            DR</div>
-                        <div>
-                            <p class="text-white font-bold">Diretor de Suprimentos</p>
-                            <p class="text-white/60 text-sm">Grande Rede de Supermercados</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10">
-                    <div class="flex text-yellow-500 mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-white italic mb-6">"Levar o café da Amazônia para o mundo exige mais do que logística
-                        — exige confiança. Ao investir na Café Selvagem, encontrei um parceiro que garante não só a
-                        entrega dos grãos, mas a segurança operacional que minha empresa precisa. Foi um investimento
-                        que trouxe previsibilidade, credibilidade e tranquilidade para expandir o negócio."</p>
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 bg-verde-escuro rounded-full flex items-center justify-center font-bold text-white">
-                            EM</div>
-                        <div>
-                            <p class="text-white font-bold">Exportadora Global</p>
-                            <p class="text-white/60 text-sm">Trading de Commodities</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <!-- TEXTURA PREMIUM SUTIL -->
+        <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0);
+               background-size: 42px 42px;">
         </div>
-    </section>
 
-    <!-- DIFERENCIAL -->
-    <section id="diferencial-producao" class="py-24 px-4 lg:px-8 bg-verde-escuro">
-        <div class="max-w-[1600px] mx-auto">
+        <!-- GRADIENTE SUAVE -->
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-verde-escuro/20 rounded-full blur-3xl pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-green-500/10 rounded-full blur-3xl pointer-events-none">
+        </div>
 
-            <div class="text-center mb-20">
-                <h2 data-aos="fade-up" class="text-white font-bold tracking-widest uppercase text-sm mb-3">
-                    Nosso Diferencial de Produção
+        <div class="relative max-w-6xl mx-auto">
+
+            <!-- CABEÇALHO -->
+            <div class="max-w-3xl mb-8">
+                <span class="text-green-400 text-sm tracking-widest uppercase font-medium">
+                    Nosso Diferencial
+                </span>
+
+                <h2 class="text-3xl md:text-5xl font-semibold mt-4 leading-tight">
+                    Por que Escolher <br class="hidden md:block">
+                    o Café Selvagem?
                 </h2>
 
-                <h3 data-aos="fade-up" class="text-3xl md:text-5xl font-black text-white uppercase leading-tight">
-                    Produção sustentável, tecnologia e impacto regional
-                </h3>
-
-                <div class="w-24 h-1 bg-white mx-auto mt-6"></div>
+                <p class="text-zinc-300 text-base md:text-lg mt-6 leading-relaxed max-w-2xl">
+                    Vantagens competitivas que fortalecem o projeto, combinando escala produtiva,
+                    estrutura comercial e visão estratégica para expansão.
+                </p>
             </div>
 
-            <div class="grid grid-flow-col auto-cols-[320px] gap-8 overflow-x-auto pb-10 no-scrollbar snap-x snap-mandatory
-            lg:grid-flow-row lg:grid-cols-4 lg:auto-cols-auto lg:overflow-visible
-            xl:gap-10">
+            <!-- CARDS DE DIFERENCIAIS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
-                <div data-aos="fade-up"
-                    class="bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
-                    <div class="h-52 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
-                            alt="Produção 100% Orgânica"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
+                <!-- ITEM 01 -->
+                <div
+                    class="group bg-white/[0.04] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition duration-300">
+                    <div class="flex items-start gap-5">
+                        <span class="text-green-400 text-sm font-medium tracking-widest">
+                            01
+                        </span>
 
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-seedling text-2xl text-verde-escuro"></i>
+                        <div>
+                            <h3 class="text-xl font-medium text-white mb-3">
+                                Escala e Gestão
+                            </h3>
+                            <p class="text-zinc-400 leading-relaxed">
+                                Produção em larga escala com acompanhamento técnico e gestão orientada
+                                à eficiência operacional.
+                            </p>
                         </div>
-
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Produção 100% Orgânica
-                        </h4>
-
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            Cultivamos café sem uso de agrotóxicos ou químicos sintéticos, respeitando o ciclo natural
-                            da floresta amazônica. Isso garante um produto puro, saudável e valorizado no mercado
-                            internacional, cada vez mais exigente por práticas sustentáveis.
-                        </p>
                     </div>
                 </div>
 
-                <div data-aos="fade-up" data-aos-delay="100"
-                    class="bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
-                    <div class="h-52 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80"
-                            alt="Tecnologia de Insumos e Manejo"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
+                <!-- ITEM 02 -->
+                <div
+                    class="group bg-white/[0.04] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition duration-300">
+                    <div class="flex items-start gap-5">
+                        <span class="text-green-400 text-sm font-medium tracking-widest">
+                            02
+                        </span>
 
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-tractor text-2xl text-verde-escuro"></i>
+                        <div>
+                            <h3 class="text-xl font-medium text-white mb-3">
+                                Integração de Investimentos
+                            </h3>
+                            <p class="text-zinc-400 leading-relaxed">
+                                Modelo estruturado para crescimento em café, conectando capital,
+                                produção e expansão comercial.
+                            </p>
                         </div>
-
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Tecnologia de Insumos e Manejo
-                        </h4>
-
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            Utilizamos insumos de última geração e técnicas modernas de cultivo que aumentam a
-                            produtividade sem comprometer o equilíbrio ambiental. Nossa gestão agrícola combina inovação
-                            e tradição, assegurando eficiência e qualidade em cada hectare.
-                        </p>
                     </div>
                 </div>
 
-                <div data-aos="fade-up" data-aos-delay="200"
-                    class="bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
-                    <div class="h-52 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80"
-                            alt="Certificações de Sustentabilidade e Qualidade"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
+                <!-- ITEM 03 -->
+                <div
+                    class="group bg-white/[0.04] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition duration-300">
+                    <div class="flex items-start gap-5">
+                        <span class="text-green-400 text-sm font-medium tracking-widest">
+                            03
+                        </span>
 
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-certificate text-2xl text-verde-escuro"></i>
+                        <div>
+                            <h3 class="text-xl font-medium text-white mb-3">
+                                Potencial Comercial
+                            </h3>
+                            <p class="text-zinc-400 leading-relaxed">
+                                Foco em exportação, marcas próprias e abastecimento de grandes redes,
+                                ampliando possibilidades de mercado.
+                            </p>
                         </div>
-
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Certificações de Sustentabilidade e Qualidade
-                        </h4>
-
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            O Café Selvagem busca certificações reconhecidas globalmente, que comprovam nossa
-                            responsabilidade ambiental, social e de governança. Essas credenciais elevam o valor do
-                            produto e reforçam a confiança dos investidores e consumidores.
-                        </p>
                     </div>
                 </div>
 
-                <div data-aos="fade-up" data-aos-delay="300"
-                    class="bg-white rounded-3xl overflow-hidden shadow-xl snap-center border-b-4 border-marrom group">
-                    <div class="h-52 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
-                            alt="Desenvolvimento Regional e Agricultura Familiar"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
+                <!-- ITEM 04 -->
+                <div
+                    class="group bg-white/[0.04] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition duration-300">
+                    <div class="flex items-start gap-5">
+                        <span class="text-green-400 text-sm font-medium tracking-widest">
+                            04
+                        </span>
 
-                    <div class="p-8">
-                        <div class="bg-stone-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-people-group text-2xl text-verde-escuro"></i>
+                        <div>
+                            <h3 class="text-xl font-medium text-white mb-3">
+                                Base Logística em Manaus
+                            </h3>
+                            <p class="text-zinc-400 leading-relaxed">
+                                Posicionamento estratégico para expansão logística nacional e
+                                internacional.
+                            </p>
                         </div>
-
-                        <h4 class="text-xl font-bold text-verde-escuro mb-4 uppercase">
-                            Desenvolvimento Regional e Agricultura Familiar
-                        </h4>
-
-                        <p class="text-gray-600 leading-relaxed text-[15px]">
-                            O Café Selvagem promove inclusão social ao integrar agricultores familiares na cadeia
-                            produtiva. Essa parceria fortalece comunidades locais, gera emprego e renda, e contribui
-                            para o desenvolvimento sustentável da região amazônica.
-                        </p>
                     </div>
-
                 </div>
-
 
             </div>
-            <div class="flex justify-center mt-12">
-                <a href="#contato"
-                    class="flex items-center justify-center bg-white text-verde-escuro font-bold uppercase tracking-wider px-10 py-4 rounded-full hover:bg-gray-200/90 hover:text-gray-800 transition duration-300">
-                    Solicitar proposta por hectares
-                </a>
+
+            <!-- COMPROMISSO COM A QUALIDADE -->
+            <div class="relative bg-white text-gray-900 rounded-3xl p-8 md:p-12 overflow-hidden">
+
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-green-100 rounded-full blur-3xl opacity-70 pointer-events-none">
+                </div>
+
+                <div class="relative grid md:grid-cols-2 gap-10 items-center">
+
+                    <div>
+                        <span class="text-verde-escuro text-sm tracking-widest uppercase font-medium">
+                            Compromisso com a Qualidade
+                        </span>
+
+                        <h3 class="text-2xl md:text-4xl font-semibold mt-4 leading-tight">
+                            Rastreabilidade e Padrões de Produção
+                        </h3>
+                    </div>
+
+                    <div>
+                        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                            Práticas alinhadas a exigências de qualidade e sustentabilidade, com foco
+                            contínuo na evolução operacional. Em processo de adequação para certificações
+                            reconhecidas.
+                        </p>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
