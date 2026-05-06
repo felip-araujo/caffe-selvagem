@@ -1,56 +1,61 @@
-const nodemailer = require("nodemailer");
 
-// se der erro de fetch, descomenta a linha abaixo:
-// const fetch = require("node-fetch");
+const formContato = document.getElementById("form-contato");
 
-module.exports = async (req, res) => { // ⚠️ TEM que ser async
+formContato.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const button = formContato.querySelector("button[type='submit']");
+
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const quantidade = document.getElementById("quantidade").value;
+    const mensagem = document.getElementById("mensagem").value.trim();
+
+    const token = grecaptcha.getResponse();
+
+    if (!token) {
+        alert("Por favor, confirme o reCAPTCHA.");
+        return;
+    }
+
+    button.disabled = true;
+    button.innerText = "Enviando...";
+
     try {
-        if (req.method !== "POST") {
-            return res.status(405).end();
-        }
-
-        const { nome, email, mensagem, quantidade, token } = req.body;
-
-        // 🔐 valida reCAPTCHA (AGORA dentro do async)
-        const verify = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+        const response = await fetch("/api/contato", {
             method: "POST",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/json"
             },
-            body: `secret=${process.env.RECAPTCHA_SECRET}&response=${token}`
+            body: JSON.stringify({
+                nome,
+                email,
+                quantidade,
+                mensagem,
+                token
+            })
         });
 
-        const data = await verify.json();
+        const data = await response.json();
 
-        if (!data.success) {
-            return res.status(400).json({ error: "Captcha inválido" });
+        if (!response.ok) {
+            alert(data.error || "Erro ao enviar formulário.");
+            grecaptcha.reset();
+            return;
         }
 
-        // 📩 envio de email
-        const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
-        });
-
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: [
-                "felipedgart@gmail.com",
-                "comercial@cafeselvagem.com.br"
-            ],
-            subject: "Novo Contato do Site",
-            text: `Nome: ${nome}\nEmail: ${email} \nQuantidade: ${quantidade} \nMensagem: ${mensagem}`
-        });
-
-        return res.status(200).json({ ok: true });
+        alert("Mensagem enviada com sucesso!");
+        formContato.reset();
+        grecaptcha.reset();
 
     } catch (error) {
-        console.error("ERRO REAL:", error);
-        return res.status(500).json({ error: error.message });
+        console.error(error);
+        alert("Erro ao enviar formulário.");
+        grecaptcha.reset();
+
+    } finally {
+        button.disabled = false;
+        button.innerText = "Solicitar Proposta";
     }
-};
+});
