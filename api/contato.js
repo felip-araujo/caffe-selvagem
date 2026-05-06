@@ -14,12 +14,16 @@ module.exports = async (req, res) => {
 
         if (!process.env.RECAPTCHA_SECRET) {
             console.error("RECAPTCHA_SECRET não configurado");
-            return res.status(500).json({ error: "RECAPTCHA_SECRET não configurado no servidor" });
+            return res.status(500).json({
+                error: "RECAPTCHA_SECRET não configurado no servidor"
+            });
         }
 
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             console.error("EMAIL_USER ou EMAIL_PASS não configurado");
-            return res.status(500).json({ error: "Credenciais de e-mail não configuradas no servidor" });
+            return res.status(500).json({
+                error: "Credenciais de e-mail não configuradas no servidor"
+            });
         }
 
         // Validação do reCAPTCHA
@@ -34,7 +38,19 @@ module.exports = async (req, res) => {
             }).toString()
         });
 
-        const captchaData = await verify.json();
+        const captchaText = await verify.text();
+
+        let captchaData;
+
+        try {
+            captchaData = JSON.parse(captchaText);
+        } catch (error) {
+            console.error("RESPOSTA NÃO JSON DO RECAPTCHA:", captchaText.slice(0, 300));
+
+            return res.status(500).json({
+                error: "Erro ao validar reCAPTCHA. A resposta do Google não veio em JSON."
+            });
+        }
 
         if (!captchaData.success) {
             console.error("ERRO RECAPTCHA:", captchaData);
@@ -45,7 +61,6 @@ module.exports = async (req, res) => {
             });
         }
 
-        // Transporte Gmail
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -54,7 +69,6 @@ module.exports = async (req, res) => {
             }
         });
 
-        // Testa credenciais antes de enviar
         await transporter.verify();
 
         await transporter.sendMail({
