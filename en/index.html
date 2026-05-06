@@ -773,7 +773,7 @@
                 <!-- FORM -->
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl border border-gray-200">
 
-                    <form action="#" id="form-contato" class="space-y-5">
+                    <form id="form-contato" class="space-y-5">
 
                         <div>
                             <label class="block text-xs font-medium text-gray-500 mb-2 uppercase tracking-widest">
@@ -818,7 +818,7 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
 
-                            <button type="submit"
+                            <button id="send" type="submit"
                                 class="w-full bg-verde-escuro text-white py-4 rounded-xl font-medium text-base hover:bg-black transition-all duration-300 shadow-lg">
                                 Solicitar Proposta
                             </button>
@@ -963,6 +963,79 @@
     </script>
 
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <script>
+        const formContato = document.getElementById("form-contato");
+
+        formContato.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const button = document.getElementById("send");
+
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const quantidade = document.getElementById("quantidade").value;
+            const mensagem = document.getElementById("mensagem").value.trim();
+
+            if (!nome || !email || !quantidade || !mensagem) {
+                alert("Preencha todos os campos.");
+                return;
+            }
+
+            if (typeof grecaptcha === "undefined") {
+                alert("reCAPTCHA ainda não carregou. Tente novamente em alguns segundos.");
+                return;
+            }
+
+            const token = grecaptcha.getResponse();
+
+            if (!token) {
+                alert("Por favor, confirme o reCAPTCHA.");
+                return;
+            }
+
+            button.disabled = true;
+            button.innerText = "Enviando...";
+
+            try {
+                const response = await fetch("/api/contato", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        quantidade,
+                        mensagem,
+                        token
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    alert(data.error || "Erro ao enviar formulário.");
+                    grecaptcha.reset();
+                    return;
+                }
+
+                alert("Mensagem enviada com sucesso!");
+                formContato.reset();
+                grecaptcha.reset();
+
+            } catch (error) {
+                console.error("ERRO NO FRONT:", error);
+                alert("Erro ao enviar formulário.");
+                grecaptcha.reset();
+
+            } finally {
+                button.disabled = false;
+                button.innerText = "Solicitar Proposta";
+            }
+        });
+    </script>
 
 </body>
 

@@ -1,61 +1,60 @@
+const nodemailer = require("nodemailer");
 
-const formContato = document.getElementById("form-contato");
-
-formContato.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const button = formContato.querySelector("button[type='submit']");
-
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const quantidade = document.getElementById("quantidade").value;
-    const mensagem = document.getElementById("mensagem").value.trim();
-
-    const token = grecaptcha.getResponse();
-
-    if (!token) {
-        alert("Por favor, confirme o reCAPTCHA.");
-        return;
-    }
-
-    button.disabled = true;
-    button.innerText = "Enviando...";
-
+module.exports = async (req, res) => {
     try {
-        const response = await fetch("/api/contato", {
+        if (req.method !== "POST") {
+            return res.status(405).json({ error: "Método não permitido" });
+        }
+
+        const { nome, email, mensagem, quantidade, token } = req.body;
+
+        if (!nome || !email || !mensagem || !quantidade || !token) {
+            return res.status(400).json({ error: "Dados incompletos" });
+        }
+
+        const verify = await fetch("https://www.google.com/recaptcha/api/siteverify", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({
-                nome,
-                email,
-                quantidade,
-                mensagem,
-                token
+            body: new URLSearchParams({
+                secret: process.env.RECAPTCHA_SECRET,
+                response: token
             })
         });
 
-        const data = await response.json();
+        const data = await verify.json();
 
-        if (!response.ok) {
-            alert(data.error || "Erro ao enviar formulário.");
-            grecaptcha.reset();
-            return;
+        if (!data.success) {
+            console.log("ERRO RECAPTCHA:", data);
+            return res.status(400).json({ error: "Captcha inválido" });
         }
 
-        alert("Mensagem enviada com sucesso!");
-        formContato.reset();
-        grecaptcha.reset();
+        const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
+            }
+        });
+
+        await transporter.sendMail({
+            from: `"Café Selvagem" <${process.env.EMAIL_USER}>`,
+            to: [
+                "felipedgart@gmail.com",
+                "comercial@cafeselvagem.com.br"
+            ],
+            replyTo: email,
+            subject: "Novo Contato do Site",
+            text: `Nome: ${nome}\nEmail: ${email}\nQuantidade: ${quantidade}\nMensagem: ${mensagem}`
+        });
+
+        return res.status(200).json({ ok: true });
 
     } catch (error) {
-        console.error(error);
-        alert("Erro ao enviar formulário.");
-        grecaptcha.reset();
-
-    } finally {
-        button.disabled = false;
-        button.innerText = "Solicitar Proposta";
+        console.error("ERRO REAL:", error);
+        return res.status(500).json({ error: error.message });
     }
-});
+};
