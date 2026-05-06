@@ -774,7 +774,7 @@
                 <!-- FORM -->
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl border border-gray-200">
 
-                    <form action="#" id="form-contato" class="space-y-5">
+                    <form action="" id="form-contato" class="space-y-5">
 
                         <div>
                             <label class="block text-xs font-medium text-gray-500 mb-2 uppercase tracking-widest">
@@ -964,6 +964,58 @@
     </script>
 
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+    <script>
+        document.getElementById("form-contato").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const quantidade = document.getElementById("quantidade").value;
+            const mensagem = document.getElementById("mensagem").value;
+
+            const token = grecaptcha.getResponse();
+
+            if (!token) {
+                alert("Por favor, confirme o reCAPTCHA.");
+                return;
+            }
+
+            try {
+                const response = await fetch("/api/contato", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        quantidade,
+                        mensagem,
+                        token
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    alert(data.error || "Erro ao enviar formulário.");
+                    return;
+                }
+
+                alert("Mensagem enviada com sucesso!");
+                document.getElementById("form-contato").reset();
+                grecaptcha.reset();
+
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao enviar formulário.");
+            }
+        });
+    </script>
 
 </body>
 
