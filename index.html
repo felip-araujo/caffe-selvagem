@@ -965,6 +965,27 @@
 
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+    <!-- TOAST -->
+    <div id="toast"
+        class="fixed top-6 right-6 z-[9999] hidden max-w-sm rounded-2xl border border-gray-200 bg-white px-5 py-4 shadow-2xl transition-all duration-300">
+        <div class="flex items-start gap-3">
+            <div id="toast-icon" class="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <div>
+                <p id="toast-title" class="text-sm font-semibold text-gray-900">
+                    Mensagem enviada
+                </p>
+                <p id="toast-message" class="text-sm text-gray-500 mt-1">
+                    Nossa equipe entrará em contato em breve.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
 </body>
 
 </html>

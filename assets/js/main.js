@@ -12,7 +12,11 @@ if (form) {
         const quantidade = document.getElementById("quantidade").value;
 
         if (!nome || !email || !mensagem || !quantidade) {
-            alert("Preencha todos os campos.");
+            showToast(
+                "warning",
+                "Campos obrigatórios",
+                "Preencha todos os campos antes de enviar."
+            );
             return;
         }
 
@@ -24,7 +28,11 @@ if (form) {
         const token = grecaptcha.getResponse();
 
         if (!token) {
-            alert("Confirme o captcha.");
+            showToast(
+                "warning",
+                "Confirme o captcha",
+                "Marque a verificação antes de enviar sua mensagem."
+            );
             return;
         }
 
@@ -50,12 +58,20 @@ if (form) {
 
             if (!res.ok) {
                 console.error("Erro retornado pela API:", data);
-                alert(data.error || "Erro ao enviar formulário.");
+                showToast(
+                    "error",
+                    "Erro ao enviar",
+                    "Não foi possível enviar sua mensagem. Tente novamente."
+                );
                 grecaptcha.reset();
                 return;
             }
 
-            alert("Mensagem enviada com sucesso!");
+            showToast(
+                "success",
+                "Mensagem enviada com sucesso",
+                "Nossa equipe retornará em até 24 horas úteis."
+            );
             form.reset();
             grecaptcha.reset();
 
@@ -80,4 +96,49 @@ function scrollSobreCards(value) {
         left: value,
         behavior: 'smooth'
     });
+}
+
+
+
+function showToast(type, title, message) {
+    const toast = document.getElementById("toast");
+    const toastIcon = document.getElementById("toast-icon");
+    const toastTitle = document.getElementById("toast-title");
+    const toastMessage = document.getElementById("toast-message");
+
+    if (!toast || !toastIcon || !toastTitle || !toastMessage) return;
+
+    toastTitle.innerText = title;
+    toastMessage.innerText = message;
+
+    toastIcon.className =
+        "w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0";
+
+    if (type === "success") {
+        toastIcon.classList.add("bg-green-600");
+        toastIcon.innerHTML = `<i class="fa-solid fa-check"></i>`;
+    }
+
+    if (type === "error") {
+        toastIcon.classList.add("bg-red-600");
+        toastIcon.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    }
+
+    if (type === "warning") {
+        toastIcon.classList.add("bg-yellow-500");
+        toastIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
+    }
+
+    toast.classList.remove("hidden");
+    toast.classList.add("animate__animated", "animate__fadeInRight");
+
+    setTimeout(() => {
+        toast.classList.remove("animate__fadeInRight");
+        toast.classList.add("animate__fadeOutRight");
+
+        setTimeout(() => {
+            toast.classList.add("hidden");
+            toast.classList.remove("animate__animated", "animate__fadeOutRight");
+        }, 500);
+    }, 4000);
 }
