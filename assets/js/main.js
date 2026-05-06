@@ -6,13 +6,6 @@ if (form) {
 
         const button = form.querySelector("button[type='submit']");
 
-        const token = grecaptcha.getResponse();
-
-        if (!token) {
-            alert("Confirme o captcha");
-            return;
-        }
-
         const nome = document.getElementById("nome").value.trim();
         const email = document.getElementById("email").value.trim();
         const mensagem = document.getElementById("mensagem").value.trim();
@@ -20,6 +13,18 @@ if (form) {
 
         if (!nome || !email || !mensagem || !quantidade) {
             alert("Preencha todos os campos.");
+            return;
+        }
+
+        if (typeof grecaptcha === "undefined") {
+            alert("O reCAPTCHA ainda não carregou. Aguarde alguns segundos e tente novamente.");
+            return;
+        }
+
+        const token = grecaptcha.getResponse();
+
+        if (!token) {
+            alert("Confirme o captcha.");
             return;
         }
 
@@ -43,18 +48,20 @@ if (form) {
 
             const data = await res.json();
 
-            if (res.ok) {
-                alert("Mensagem enviada com sucesso!");
-                form.reset();
-                grecaptcha.reset();
-            } else {
+            if (!res.ok) {
+                console.error("Erro retornado pela API:", data);
                 alert(data.error || "Erro ao enviar formulário.");
                 grecaptcha.reset();
+                return;
             }
 
+            alert("Mensagem enviada com sucesso!");
+            form.reset();
+            grecaptcha.reset();
+
         } catch (error) {
-            console.error("Erro ao enviar:", error);
-            alert("Erro ao enviar formulário.");
+            console.error("Erro no front:", error);
+            alert("Erro ao enviar formulário. Verifique sua conexão e tente novamente.");
             grecaptcha.reset();
 
         } finally {
@@ -64,10 +71,10 @@ if (form) {
     });
 }
 
-
-
 function scrollSobreCards(value) {
     const container = document.getElementById('sobreCardsContainer');
+
+    if (!container) return;
 
     container.scrollBy({
         left: value,
