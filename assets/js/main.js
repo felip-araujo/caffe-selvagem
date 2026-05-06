@@ -1,44 +1,68 @@
 const form = document.getElementById("form-contato");
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    const token = grecaptcha.getResponse();
+        const button = form.querySelector("button[type='submit']");
 
-    if (!token) {
-        alert("Confirme o captcha");
-        return;
-    }
+        const token = grecaptcha.getResponse();
 
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const mensagem = document.getElementById("mensagem").value;
-    const quantidade = document.getElementById("quantidade").value;
+        if (!token) {
+            alert("Confirme o captcha");
+            return;
+        }
 
-    const res = await fetch("/api/contato", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            nome,
-            email,
-            mensagem,
-            quantidade,
-            token
-        })
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mensagem = document.getElementById("mensagem").value.trim();
+        const quantidade = document.getElementById("quantidade").value;
+
+        if (!nome || !email || !mensagem || !quantidade) {
+            alert("Preencha todos os campos.");
+            return;
+        }
+
+        button.disabled = true;
+        button.innerText = "Enviando...";
+
+        try {
+            const res = await fetch("/api/contato", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome,
+                    email,
+                    mensagem,
+                    quantidade,
+                    token
+                })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                alert("Mensagem enviada com sucesso!");
+                form.reset();
+                grecaptcha.reset();
+            } else {
+                alert(data.error || "Erro ao enviar formulário.");
+                grecaptcha.reset();
+            }
+
+        } catch (error) {
+            console.error("Erro ao enviar:", error);
+            alert("Erro ao enviar formulário.");
+            grecaptcha.reset();
+
+        } finally {
+            button.disabled = false;
+            button.innerText = "Solicitar Proposta";
+        }
     });
-
-    if (res.ok) {
-        alert("Mensagem enviada!");
-        form.reset();
-        grecaptcha.reset();
-    } else {
-        alert("Erro ao enviar");
-    }
-});
-
-
+}
 
 function scrollSobreCards(value) {
     const container = document.getElementById('sobreCardsContainer');
